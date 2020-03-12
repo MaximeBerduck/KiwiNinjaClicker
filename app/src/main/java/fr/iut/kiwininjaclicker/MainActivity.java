@@ -1,5 +1,6 @@
 package fr.iut.kiwininjaclicker;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mainLayout = findViewById(R.id.mainLayout);
         nbrClick = findViewById(R.id.nbrClick);
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        nbrClick.setText(prefs.getString("BANANE", String.valueOf(0)));
         handler = new HandlerIncrementation(nbrClick);
 
         Thread background = new Thread(new Runnable() {
@@ -74,6 +77,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         // Tuer la Thread
         isThreadRunnning.set(false);
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs",
+                MODE_PRIVATE).edit();
+        editor.putString( "BANANE", nbrClick.getText().toString());
+        editor.apply();
         super.onDestroy();
     }
 
