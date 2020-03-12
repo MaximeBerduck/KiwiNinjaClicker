@@ -19,6 +19,9 @@ package="fr.iut.kiwininjaclicker">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
+    <activity android:name=".Parametre">
+    </activity>
+
 </application>
 
 </manifest>

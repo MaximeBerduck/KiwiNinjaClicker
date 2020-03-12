@@ -1,5 +1,6 @@
 package fr.iut.kiwininjaclicker;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         nbrClick.setText(prefs.getString("BANANE", String.valueOf(0)));
         handler = new HandlerIncrementation(nbrClick);
+        MusicManager.getInstance().initalizeMediaPlayer(getBaseContext(), R.raw.katana); // to initalize of media player
+        MusicManager.getInstance().startPlaying();// to start playing music
 
         Thread background = new Thread(new Runnable() {
             /**
@@ -108,11 +111,8 @@ public class MainActivity extends AppCompatActivity {
         nbrClick.setText(String.valueOf(n));
     }
 
-    public void paramOnClick(View v){
-        //todo
-    }
-
-    public void upgradeONClick(View v){
-        //todo
+    public void paramOnClick(View v) {
+        Intent intent = new Intent(MainActivity.this, Parametre.class);
+        startActivity(intent);
     }
 }
