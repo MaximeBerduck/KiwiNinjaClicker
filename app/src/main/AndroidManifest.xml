@@ -21,6 +21,7 @@ package="fr.iut.kiwininjaclicker">
     </activity>
     <activity android:name=".Shop"/>
     <activity android:name=".ItemShop"/>
+    <activity android:name=".Parametre"/>
 </application>
 
 </manifest>

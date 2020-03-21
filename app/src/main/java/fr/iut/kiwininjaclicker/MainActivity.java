@@ -101,8 +101,9 @@ public class MainActivity extends AppCompatActivity {
         nbrClick.setText(String.valueOf(n));
     }
 
-    public void paramOnClick(View v){
-        //todo
+    public void paramOnClick(View v) {
+        Intent intent = new Intent(MainActivity.this, Parametre.class);
+        startActivity(intent);
     }
 
     public void upgradeONClick(View v){
