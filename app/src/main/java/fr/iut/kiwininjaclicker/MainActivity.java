@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         nbrClick.setText(prefs.getString("BANANE", String.valueOf(0)));
         handler = new HandlerIncrementation(nbrClick);
         MusicManager.getInstance().initalizeMediaPlayer(getBaseContext(), R.raw.katana); // to initalize of media player
-        MusicManager.getInstance().startPlaying();// to start playing music
+        if (prefs.getBoolean("SON",true))
+            MusicManager.getInstance().startPlaying();// to start playing music
 
         Thread background = new Thread(new Runnable() {
             /**
