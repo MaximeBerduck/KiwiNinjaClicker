@@ -1,5 +1,6 @@
 package fr.iut.kiwininjaclicker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -94,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void incrementNbrClick(float i){
-
         int n = Integer.parseInt(nbrClick.getText().toString());
         n+=i;
         Log.d("value : ", String.valueOf(n));
@@ -107,5 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void upgradeONClick(View v){
         //todo
-    }
+        Intent intent = new Intent(MainActivity.this,Shop.class);
+        startActivity(intent);    }
 }

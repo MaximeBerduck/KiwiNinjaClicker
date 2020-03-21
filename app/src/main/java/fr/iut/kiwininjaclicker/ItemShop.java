@@ -1,8 +1,11 @@
 package fr.iut.kiwininjaclicker;
 
 import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
 
-public class ItemShop extends Activity {
+public class ItemShop{
     private String nomItem;
     private Float gainAmelioration;
     private Float prixAmelioration;
@@ -16,6 +19,7 @@ public class ItemShop extends Activity {
     }
 
     public void augmenterAmelioration(){
+        Log.d("tete", "augmenterAmelioration: test");
         this.prixAmelioration = this.prixAmelioration * this.augmentation;
         this.gainAmelioration = this.prixAmelioration * this.augmentation;
     }
