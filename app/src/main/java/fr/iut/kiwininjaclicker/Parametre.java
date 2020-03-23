@@ -30,18 +30,18 @@ public class Parametre extends AppCompatActivity {
 
         imageSon = findViewById(R.id.imageSon);
         if (flagSon) {
-            MusicManager.getInstance().startPlaying();// to start playing music
             imageSon.setImageResource(R.drawable.son_foreground);
         } else {
-            MusicManager.getInstance().stopPlaying();// to start playing music
             imageSon.setImageResource(R.drawable.sonmuet_foreground);
         }
 
 
         imageMusique = findViewById(R.id.imageMusique);
         if (flagMusique) {
+            MusicManager.getInstance().startPlaying();// to start playing music
             imageMusique.setImageResource(R.drawable.musique_foreground);
         } else {
+            MusicManager.getInstance().stopPlaying();// to start playing music
             imageMusique.setImageResource(R.drawable.musiquemuet_foreground);
         }
 
@@ -51,11 +51,9 @@ public class Parametre extends AppCompatActivity {
 
     public void muteSon(View v) {
         if (!flagSon) {
-            MusicManager.getInstance().startPlaying();// to start playing music
             imageSon.setImageResource(R.drawable.son_foreground);
             flagSon = true;
         } else {
-            MusicManager.getInstance().stopPlaying();// to start playing music
             imageSon.setImageResource(R.drawable.sonmuet_foreground);
             flagSon = false;
         }
@@ -63,9 +61,11 @@ public class Parametre extends AppCompatActivity {
 
     public void muteMusique(View v) {
         if (!flagMusique) {
+            MusicManager.getInstance().startPlaying();// to start playing music
             imageMusique.setImageResource(R.drawable.musique_foreground);
             flagMusique = true;
         } else {
+            MusicManager.getInstance().stopPlaying();// to start playing music
             imageMusique.setImageResource(R.drawable.musiquemuet_foreground);
             flagMusique = false;
         }

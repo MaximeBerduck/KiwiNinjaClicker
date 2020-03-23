@@ -29,11 +29,3 @@ public class MusicManager {
         sound.prepareAsync();
     }
 }
-/*
-MusicManager.getInstance().initalizeMediaPlayer(getBaseContext(), R.raw.katana); // to initalize of media player
-        MusicManager.getInstance().startPlaying();// to start playing music
-
-public void paramOnClick(View v) {
-        Intent intent = new Intent(MainActivity.this, Parametre.class);
-        startActivity(intent);
-        }*/
