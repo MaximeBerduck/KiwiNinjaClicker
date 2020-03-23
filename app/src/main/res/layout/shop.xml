@@ -8,7 +8,7 @@
     tools:context=".Shop">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/titreBoutique"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/titreBoutique"
@@ -21,7 +21,7 @@
         android:id="@+id/listeAmeliorations"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintTop_toBottomOf="@+id/titreBoutique"
+        tools:layout_editor_absoluteX="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
