@@ -19,7 +19,6 @@ public class ItemShop{
     }
 
     public void augmenterAmelioration(){
-        Log.d("tete", "augmenterAmelioration: test");
         this.prixAmelioration = this.prixAmelioration * this.augmentation;
         this.gainAmelioration = this.prixAmelioration * this.augmentation;
     }

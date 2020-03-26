@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class MainActivity extends AppCompatActivity {
     ConstraintLayout mainLayout;
     private TextView nbrClick;
+    private int bonus;
     Handler handler;
     private AtomicBoolean isThreadRunnning = new AtomicBoolean();
     private AtomicBoolean isThreadPausing = new AtomicBoolean();
@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
         nbrClick = findViewById(R.id.nbrClick);
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         nbrClick.setText(prefs.getString("BANANE", String.valueOf(0)));
+        bonus = prefs.getInt("BONUS", 0);
+        if (bonus == 0) {
+            bonus = 1;
+        }
         handler = new HandlerIncrementation(nbrClick);
         MusicManager.getInstance().initalizeMediaPlayer(getBaseContext(), R.raw.katana); // to initalize of media player
         if (prefs.getBoolean("MUSIQUE", true))
@@ -59,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             // Obtenir le Message
                             myMessage = handler.obtainMessage();
                             //Ajouter des données à transmettre au Handler via le Bundle
-                            messageBundle.putInt(HandlerIncrementation.NOMBRE_CLICK_INCREMENTE, 1);
+                            messageBundle.putInt(HandlerIncrementation.NOMBRE_CLICK_INCREMENTE, bonus);
                             //Ajouter le Bundle au message
                             myMessage.setData(messageBundle);
                             // envoyer le message au Hanlder
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs",
                 MODE_PRIVATE).edit();
         editor.putString("BANANE", nbrClick.getText().toString());
+        editor.putInt("BONUS", bonus);
         editor.apply();
         super.onDestroy();
     }
@@ -96,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        nbrClick.setText(prefs.getString("BANANE", String.valueOf(0)));
+        bonus = prefs.getInt("BONUS", 0);
         isThreadPausing.set(false);
         super.onResume();
     }
@@ -104,9 +112,9 @@ public class MainActivity extends AppCompatActivity {
         incrementNbrClick(1);
     }
 
-    public void incrementNbrClick(float i){
+    public void incrementNbrClick(float i) {
         int n = Integer.parseInt(nbrClick.getText().toString());
-        n+=i;
+        n += i;
         Log.d("value : ", String.valueOf(n));
         nbrClick.setText(String.valueOf(n));
     }
@@ -116,8 +124,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void upgradeONClick(View v){
-        //todo
-        Intent intent = new Intent(MainActivity.this,Shop.class);
-        startActivity(intent);    }
+    public void upgradeONClick(View v) {
+        Intent intent = new Intent(MainActivity.this, Shop.class);
+        intent.putExtra("BONUS", bonus);
+        intent.putExtra("NBRBANANES", Integer.parseInt(nbrClick.getText().toString()));
+        startActivity(intent);
+    }
 }
