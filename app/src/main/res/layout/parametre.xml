@@ -11,6 +11,8 @@
         android:layout_height="139dp"
         android:layout_marginStart="30dp"
         android:layout_marginBottom="136dp"
+        android:checked="false"
+        android:onClick="notation"
         android:text="Notation scientifique"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"

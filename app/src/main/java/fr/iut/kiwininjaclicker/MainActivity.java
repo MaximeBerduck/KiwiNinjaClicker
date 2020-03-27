@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("MUSIQUE", true))
             MusicManager.getInstance().startPlaying();// to start playing music
 
+
+
         Thread background = new Thread(new Runnable() {
             /**
              * Le Bundle qui porte les données du Message et sera transmis au Handler
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void paramOnClick(View v) {
         Intent intent = new Intent(MainActivity.this, Parametre.class);
+        intent.putExtra("NBRBANANES", Integer.parseInt(nbrClick.getText().toString()));
         startActivity(intent);
     }
 
@@ -130,4 +133,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("NBRBANANES", Integer.parseInt(nbrClick.getText().toString()));
         startActivity(intent);
     }
+
+
 }
