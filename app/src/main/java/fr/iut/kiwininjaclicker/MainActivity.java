@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         isThreadPausing.set(true);
+        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs",
+                MODE_PRIVATE).edit();
+        editor.putString("BANANE", nbrClick.getText().toString());
+        editor.putInt("BONUS", bonus);
+        editor.apply();
         super.onPause();
     }
 
