@@ -1,69 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="100dp"
+        android:gravity="center">
+
+        <ImageButton
+            android:id="@+id/imageMusique"
+            android:layout_width="92dp"
+            android:layout_height="95dp"
+            android:layout_marginRight="40dp"
+            android:onClick="muteMusique"
+            app:srcCompat="@mipmap/musique_foreground"
+            tools:srcCompat="@mipmap/musique_foreground" />
+
+        <ImageButton
+            android:id="@+id/imageSon"
+            android:layout_width="92dp"
+            android:layout_height="95dp"
+            android:onClick="muteSon"
+            app:srcCompat="@mipmap/son_foreground" />
+    </LinearLayout>
 
     <Switch
         android:id="@+id/switch3"
-        android:layout_width="379dp"
-        android:layout_height="139dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="136dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:checked="false"
         android:onClick="notation"
         android:text="Notation scientifique"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageButton
-        android:id="@+id/imageMusique"
-        android:layout_width="92dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginBottom="105dp"
-        android:onClick="muteMusique"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534"
-        app:srcCompat="@mipmap/musique_foreground"
-        tools:srcCompat="@mipmap/musique_foreground" />
-
-    <ImageButton
-        android:id="@+id/imageSon"
-        android:layout_width="92dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="169dp"
-        android:onClick="muteSon"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageMusique"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/son_foreground" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
+        android:layout_marginTop="150dp"
         android:layout_height="48dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="193dp"
-        android:layout_marginBottom="51dp"
         android:onClick="retour"
-        android:text="Retour"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch3" />
+        android:text="Retour" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
