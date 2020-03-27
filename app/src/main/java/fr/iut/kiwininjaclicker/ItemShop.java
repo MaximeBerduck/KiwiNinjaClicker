@@ -1,24 +1,21 @@
 package fr.iut.kiwininjaclicker;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
-
-public class ItemShop{
+public class ItemShop {
     private String nomItem;
+    private int image;
     private Float gainAmelioration;
     private Float prixAmelioration;
     private Float augmentation;
 
-    public ItemShop(String nomItem, Float gainAmelioration, Float prixAmelioration, Float augmentation) {
+    public ItemShop(String nomItem, int image, Float gainAmelioration, Float prixAmelioration, Float augmentation) {
         this.nomItem = nomItem;
+        this.image = image;
         this.gainAmelioration = gainAmelioration;
         this.prixAmelioration = prixAmelioration;
         this.augmentation = augmentation;
     }
 
-    public void augmenterAmelioration(){
+    public void augmenterAmelioration() {
         this.prixAmelioration = this.prixAmelioration * this.augmentation;
         this.gainAmelioration = this.prixAmelioration * this.augmentation;
     }
@@ -54,5 +51,9 @@ public class ItemShop{
 
     public void setAugmentationPrix(Float augmentation) {
         this.augmentation = augmentation;
+    }
+
+    public int getImage() {
+        return this.image;
     }
 }
