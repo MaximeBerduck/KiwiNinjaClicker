@@ -17,7 +17,7 @@ public class ItemShop {
 
     public void augmenterAmelioration() {
         this.prixAmelioration = this.prixAmelioration * this.augmentation;
-        this.gainAmelioration = this.prixAmelioration * this.augmentation;
+        this.gainAmelioration = this.gainAmelioration * this.augmentation;
     }
 
     //Getters and Setters

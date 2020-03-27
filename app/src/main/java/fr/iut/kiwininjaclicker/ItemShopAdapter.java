@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -57,16 +56,20 @@ public class ItemShopAdapter extends ArrayAdapter<ItemShop> {
                 Shop shop = (Shop) _context;
                 int position = (Integer) view.getTag();
                 ItemShop item = getItem(position);
-                Toast.makeText(_context.getApplicationContext(), item.getNomItem(), Toast.LENGTH_SHORT).show();
 
-                shop.augmenterBonus(item.getGainAmelioration().intValue(), item.getPrixAmelioration().intValue());
-
-                item.augmenterAmelioration();
-                finalViewHolder.prixGain.setText(String.valueOf(item.getGainAmelioration()));
-                finalViewHolder.buttonAcheter.setText(String.valueOf(item.getPrixAmelioration()));
                 if (shop.getNbrBananes() < item.getPrixAmelioration()) {
                     Button btButton = (Button) finalConvertView.findViewById(R.id.buttonAcheter);
                     btButton.setEnabled(false);
+                } else {
+                    shop.augmenterBonus(item.getGainAmelioration().intValue(), item.getPrixAmelioration().intValue());
+
+                    item.augmenterAmelioration();
+                    finalViewHolder.prixGain.setText(String.valueOf(item.getGainAmelioration()));
+                    finalViewHolder.buttonAcheter.setText(String.valueOf(item.getPrixAmelioration()));
+                    if (shop.getNbrBananes() < item.getPrixAmelioration()) {
+                        Button btButton = (Button) finalConvertView.findViewById(R.id.buttonAcheter);
+                        btButton.setEnabled(false);
+                    }
                 }
             }
         });
@@ -74,10 +77,11 @@ public class ItemShopAdapter extends ArrayAdapter<ItemShop> {
         //getItem(position) va récupérer l'item [position] de la List<ItemShop>
         ItemShop itemShop = getItem(position);
 
-        if (shop.getNbrBananes() < itemShop.getPrixAmelioration())
+        if (shop.getNbrBananes() < itemShop.getPrixAmelioration()) {
             btButton.setEnabled(false);
-
-
+        } else {
+            btButton.setEnabled(true);
+        }
         //il ne reste plus qu'à remplir notre vue
         viewHolder.nomItem.setText(itemShop.getNomItem());
         viewHolder.prixGain.setText("+" + String.valueOf(itemShop.getGainAmelioration()));

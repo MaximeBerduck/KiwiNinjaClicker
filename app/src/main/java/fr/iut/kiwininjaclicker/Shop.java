@@ -3,6 +3,7 @@ package fr.iut.kiwininjaclicker;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -64,7 +65,7 @@ public class Shop extends AppCompatActivity {
     public void augmenterBonus(int augmentation, int prixAugmentation) {
         bonus += augmentation;
         nbrBananes -= prixAugmentation;
-        textNbrBananes.setText(nbrBananes);
+        textNbrBananes.setText(String.valueOf(nbrBananes));
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs",
                 MODE_PRIVATE).edit();
         editor.putString("BANANE", String.valueOf(nbrBananes));

@@ -1,71 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/nbrClick"
-        android:layout_width="24dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="100dp"
-        android:text="0"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="55dp"
-        app:layout_constraintStart_toEndOf="@+id/nbrClick"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/banane_foreground" />
+        android:layout_marginTop="30dp"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="41dp"
-        android:onClick="paramOnClick"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@mipmap/parametres_foreground" />
+        <TextView
+            android:id="@+id/nbrClick"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            android:textSize="20dp" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="88dp"
-        android:onClick="upgradeONClick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@mipmap/chateau_foreground" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/banane_foreground" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="331dp"
         android:layout_height="339dp"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginBottom="236dp"
+        android:layout_gravity="center"
         android:onClick="pushButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@mipmap/kiwi_foreground" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|bottom">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="paramOnClick"
+            android:layout_marginRight="20dp"
+            app:srcCompat="@mipmap/parametres_foreground" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="upgradeONClick"
+            app:srcCompat="@mipmap/chateau_foreground" />
+
+    </LinearLayout>
+</LinearLayout>
